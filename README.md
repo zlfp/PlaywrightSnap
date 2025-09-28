@@ -110,7 +110,7 @@ python snap.py https://example.com --wait 5s
 
 4) **有头浏览器模式（推荐用于需要登录的站点）：**
 ```
-python snap.py https://chaojifeng.feishu.cn/wiki/xxxx --no-headless --wait 10s
+python snap.py https://chaojifeng.feishu.cn/wiki/UTPswj4VoipiDHk1PTFcZaLanjf --no-headless --wait 10s
 ```
 **适用场景：**
 - 需要手动登录的网站（如飞书文档、Notion等）
