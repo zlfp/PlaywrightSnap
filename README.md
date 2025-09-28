@@ -12,7 +12,7 @@
 **创建并激活虚拟环境：**
 ```bash
 # 创建虚拟环境
-python -m venv venv
+python3 -m venv venv
 
 # 激活虚拟环境
 # macOS/Linux:
@@ -108,12 +108,28 @@ python snap.py \
 python snap.py https://example.com --wait 5s
 ```
 
+4) **有头浏览器模式（推荐用于需要登录的站点）：**
+```
+python snap.py https://chaojifeng.feishu.cn/wiki/xxxx --no-headless --wait 10s
+```
+**适用场景：**
+- 需要手动登录的网站（如飞书文档、Notion等）
+- 复杂的单页应用（SPA）
+- 调试和验证截图效果
+
+**关键参数说明：**
+- `--no-headless`: 显示浏览器窗口，可手动操作登录
+- `--wait 10s`: 使用固定等待时间而非 `networkidle`，适合复杂应用
+- 登录后程序会自动继续执行截图任务
+
 ## 使用建议与注意事项
 - 如果出现拼接重复或缝隙，调大 `--tile_overlap` 并结合 `--sticky_top/--sticky_bottom` 做裁剪。
 - 某些页面滚动高度异常时可减小 `--cap_height`。
 - `--scale` 通过注入 CSS `zoom` 实现，可能与真实 DPR 有差异；如需更精准，考虑调整 Playwright 的设备参数。
 - `--mobile` 为简化版移动端模拟，复杂场景可按需扩展 Playwright 设备描述。
 - 首次使用需确保已安装 Playwright 浏览器（见安装步骤）。
+- **重要提示**：对于需要登录的复杂网站（如飞书、Notion等），推荐使用 `--no-headless --wait 10s` 组合，这是最简单有效的解决方案。
+- `networkidle` 等待状态在某些复杂应用中可能永远不会达成，建议使用固定等待时间如 `--wait 5s` 或 `--wait 10s`。
 
 ## 运行原理概述
 - 使用 Playwright 同步 API 打开页面，按设定的视口和滚动步进进行多次截图。
