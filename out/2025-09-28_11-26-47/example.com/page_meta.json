@@ -1,0 +1,14 @@
+{
+  "url": "https://example.com",
+  "total_height": 1000,
+  "viewport": {
+    "width": 1280,
+    "height": 1000
+  },
+  "scale": 1.0,
+  "wait": "5s",
+  "tiles": [
+    "out/2025-09-28_11-26-47/example.com/tiles/tile_0001.png",
+    "out/2025-09-28_11-26-47/example.com/tiles/tile_0002.png"
+  ]
+}
